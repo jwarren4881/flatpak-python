@@ -1,7 +1,7 @@
 {
-    "app-id": "org.flatpak.PyWithDeps",
+    "app-id": "org.testing.kiosk",
     "runtime": "org.freedesktop.Platform",
-    "runtime-version": "1.6",
+    "runtime-version": "21.08",
     "sdk": "org.freedesktop.Sdk",
     "command": "runner.sh",
     "finish-args": [
@@ -13,8 +13,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://www.python.org/ftp/python/3.6.5/Python-3.6.5.tar.xz",
-                    "sha256": "f434053ba1b5c8a5cc597e966ead3c5143012af827fd3f0697d21450bb8d87a6"
+                    "url": "https://www.python.org/ftp/python/3.10.10/Python-3.10.10.tar.xz",
+                    "md5": "7bf85df71bbe7f95e5370b983e6ae684"
                 }
             ]
         },
