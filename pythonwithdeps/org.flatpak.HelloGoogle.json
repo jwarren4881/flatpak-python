@@ -27,7 +27,30 @@
                 ]
             },
             "build-commands": [
-                "pip3 install requests"
+                "pip3 install cycler",
+                "pip3 install distlib",
+                "pip3 install docutils",
+                "pip3 install et-xmlfile",
+                "pip3 install filelock",
+                "pip3 install Kivy",
+                "pip3 install Kivy-Garden",
+                "pip3 install kiwisolver",
+                "pip3 install matplotlib",
+                "pip3 install numpy",
+                "pip3 install openpyxl",
+                "pip3 install pandas",
+                "pip3 install Pillow",
+                "pip3 install platformdirs",
+                "pip3 install polars",
+                "pip3 install psutil",
+                "pip3 install Pygments",
+                "pip3 install python-dateutil",
+                "pip3 install pytz",
+                "pip3 install Shapely",
+                "pip3 install tk",
+                "pip3 install typing_extensions",
+                "pip3 install odoorpc",
+                "pip3 install python-vlc"
             ]
         },
         {
@@ -35,12 +58,12 @@
             "buildsystem": "simple",
             "build-commands": [
                 "install -D runner.sh /app/bin/runner.sh",
-                "install -D hello.py /app/bin/hello.py"
+                "install -D kiosk.py /app/bin/kiosk.py"
             ],
             "sources": [
                 {
                     "type": "file",
-                    "path": "hello.py"
+                    "path": "kiosk.py"
                 },
                 {
                     "type": "file",

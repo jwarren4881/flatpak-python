@@ -1,0 +1,53 @@
+# kivy 2.1.0
+
+#:set button_font 20
+#:set warning [1, 239/255, 0, 1]
+#:set danger [1, 0, 0, 1]
+#:set success [0, 1, 0, 1]
+#:set normal [1, 1, 1, 1]
+#:set black [0, 0, 0, 1]
+#:set shamrock [46/255, 204/255, 113/255, 1]
+#:set main_background [60/255,60/255,60/255,1]
+
+<StreamingRadio>:
+	id: streaming_radio_screen
+	name: 'StreamingRadio'
+	BoxLayout:
+		orientation: 'vertical'
+		ProgressBar:
+			id: streaming_timeout_bar
+			#value: 100
+			min: 0
+			max: root.streaming_timeout
+			size_hint_y: 0.005
+		BoxLayout:
+			orientation: 'horizontal'
+			size_hint_y: 0.09
+			padding: 2,2,2,2
+			Button:
+				text: 'Start Over'
+				background_normal: ''
+				background_color: danger
+				color:black
+				size_hint_x: 0.25
+				font_size: 20
+				on_release:
+					app.root.current = 'welcome_screen'
+			Label:
+				text: 'Streaming Radio'
+				font_size: 20
+			Button:
+				text: 'Stop Music'
+				background_normal: ''
+				background_color: danger
+				color:black
+				size_hint_x: 0.25
+				font_size: 20
+				on_release:
+					root.stop_music()
+		GridLayout:
+			id:radio_buttons_layout
+			spacing: 5,5
+			padding: 5,5
+			cols: 3
+			

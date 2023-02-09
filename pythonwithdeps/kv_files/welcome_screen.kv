@@ -1,0 +1,112 @@
+# kivy 2.1.0
+
+#:set button_font 20
+#:set warning [1, 239/255, 0, 1]
+#:set danger [1, 0, 0, 1]
+#:set success [0, 1, 0, 1]
+#:set normal [1, 1, 1, 1]
+#:set black [0, 0, 0, 1]
+#:set shamrock [46/255, 204/255, 113/255, 1]
+#:set main_background [60/255,60/255,60/255,1]
+#:set odoo [113/255, 75/255, 103/255, 1]
+
+<WelcomeScreen>:
+	id: welcome_screen
+	name: 'welcome_screen'
+    background_color: normal
+    canvas.before:
+        Color:
+            rgba: main_background
+        Rectangle:
+            pos: self.pos
+            size: self.size
+	FloatLayout:
+		id: current_time
+		Label:
+			text: welcome_screen.label_time
+			font_size: "110dp"
+			on_size:
+				self.text = welcome_screen.get_time()
+		Button:
+		    id: swipe_card_button
+			text: 'Swipe Card to Login'
+			font_size: "50dp"
+			size_hint_y: None
+			height: root.height / 4
+            background_normal: ''
+            background_color: main_background
+            background_active: ''
+            background_down: ''
+            color: shamrock
+            on_press:
+            	self.color = normal
+            on_touch_down:
+            	self.color = normal
+            on_touch_up:
+            	self.color = shamrock
+        Button:
+        	id: active_shop_order_button
+            text: 'Active Shop Order screen'
+            font_size: "30dp"
+			size_hint: None, None
+			width: root.width/2
+			height: root.height / 6
+			pos: (0, swipe_card_button.height)
+            on_release:
+                app.root.current = 'active_shop_order'
+                app.root.transition.direction = 'left'
+        Button:
+        	id: streaming_radio_button
+        	text: 'Streaming Radio'
+        	font_size: "30dp"
+        	size_hint: None, None
+        	width: root.width / 2
+        	height: root.height / 6
+        	pos: (active_shop_order_button.width, swipe_card_button.height)
+    BoxLayout:
+    	id: main_kiosk_info
+    	orientation: 'horizontal'
+    	size_hint_y: None
+    	pos: (0, root.height - self.height)
+    	height: root.height / 4
+    	BoxLayout:
+			id: main_kiosk_info_left
+			orientation: 'vertical'
+			name: 'main power'
+			size_hint_x: .30
+		    Image:
+		        source: './Resources/Images/BatteryStatus/battery_full.png'
+		BoxLayout:
+			id: main_kiosk_info_center
+			orientation: 'vertical'
+			name: 'locations'
+			Label:
+				id: kiosk_location
+				font_size: "25dp"
+				text: 'Unknown Kiosk'
+				halign: 'center'
+			Label:
+				id: ticket_printer_name
+				font_size: "25dp"
+				text: "Unknown Ticket Printer"
+				halign: 'center'
+			Label:
+				id: paper_printer_name
+				font_size: "25dp"
+				text: "Unknown Paper Printer"
+				halign: "center"
+		BoxLayout:
+			id: main_kiosk_info_right
+			orientation: 'vertical'
+			name: 'wifi'
+			size_hint_x: .30
+			Image:
+				id: wifi_signal_image
+			    source: './Resources/Images/WifiAndWired/wifi_searching_1.png'
+			Label:
+				id: wifi_signal_text
+			    text: 'Searching'
+			    size_hint_y: None
+			    height: "35dp"
+			    halign: 'center'
+			    color: success

@@ -1,0 +1,51 @@
+# kivy 2.1.0
+#: import Factory kivy.factory.Factory
+
+#:set warning [1, 239/255, 0, 1]
+#:set danger [1, 0, 0, 1]
+#:set success [0, 1, 0, 1]
+#:set normal [1, 1, 1, 1]
+#:set teal [0, 202/255, 177/255, 1]
+#:set black [0, 0, 0, 1]
+
+<PostGoodShopOperations@Popup>:
+    id: post_good_shop_ops
+    title: 'Post Good Shop Order Operation'
+    auto_dismiss: False
+    size_hint: None,None
+    size: 400,300
+    BoxLayout:
+        orientation: 'horizontal'
+        BoxLayout:
+            orientation:'vertical'
+            Label:
+                text:'Good Quantity'
+            Button:
+            	id: posted_good_quantity
+                text: 'Still to do!'
+                on_release:
+                    Factory.NumberPadPopup().open()
+            Label:
+                text:'Haul Out Ticket'
+            ToggleButton:
+                text:'Print a Ticket'
+                group: 'good_ticket_group'
+            ToggleButton:
+                text:'No Ticket Needed'
+                group:'good_ticket_group'
+            BoxLayout:
+                orientation: 'horizontal'
+                Button:
+                    text: 'Cancel'
+                    background_normal: ''
+                    color: black
+                    background_color: danger
+                    on_release:
+                        root.dismiss()
+                Button:
+                    text: 'Post'
+                    background_normal: ''
+                    color: black
+                    background_color: success
+                    on_release:
+                        root.dismiss()

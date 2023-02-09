@@ -1,0 +1,58 @@
+# kivy 2.1.0
+
+#:set warning [1, 239/255, 0, 1]
+#:set danger [1, 0, 0, 1]
+#:set success [0, 1, 0, 1]
+#:set normal [1, 1, 1, 1]
+#:set teal [0, 202/255, 177/255, 1]
+#:set black [0, 0, 0, 1]
+#:set main_background [60/255,60/255,60/255,1]
+#:set muted_background [189/255,195/255,199/255,1]
+#:set light_background [238/255,238/255,238/255,1]
+
+<AvailableShopOrders>:
+	id: available_shop_orders
+	name: 'available_shop_orders'
+	BoxLayout:
+	    orientation: 'vertical'
+        TopBar:
+            id: available_shop_order_top_bar
+            size_hint_y: 0.15
+        ScrollView:
+        	id: shop_order_scroll
+        	do_scroll_x: False
+        	do_scroll_y: True
+			StackLayout:
+				id: shop_orders
+				size_hint: (1, None)
+				height:self.minimum_height
+				spacing: 15
+				padding: 5
+        BoxLayout:
+            id: lower_nav_buttons
+            orientation: 'horizontal'
+            size_hint_y: 0.15
+            spacing: 15
+            padding: 5
+            canvas.before:
+                Color:
+                    rgba: main_background
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+            Button:
+                text: 'Daywork'
+                font_size: 28
+                background_normal: ''
+                color: black
+                background_color: normal
+                on_release:
+                	app.root.current = 'AvailableDayWorkScreen'
+            Button:
+                text: 'Time Sheet'
+                font_size: 28
+                background_normal: ''
+                color: black
+                background_color: normal
+                on_release:
+                	app.root.current = 'Timesheet'

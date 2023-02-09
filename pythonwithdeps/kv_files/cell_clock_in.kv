@@ -1,0 +1,61 @@
+# kivy 2.1.0
+
+#:set button_font 20
+#:set warning [1, 239/255, 0, 1]
+#:set danger [1, 0, 0, 1]
+#:set success [0, 1, 0, 1]
+#:set normal [1, 1, 1, 1]
+#:set black [0, 0, 0, 1]
+#:set shamrock [46/255, 204/255, 113/255, 1]
+#:set main_background [60/255,60/255,60/255,1]
+
+<CellClockIn>:
+	id: cell_clock_in_screen
+	name: 'Cell Clock In'
+    background_color: normal
+    canvas.before:
+        Color:
+            rgba: main_background
+        Rectangle:
+            pos: self.pos
+            size: self.size
+    BoxLayout:
+        orientation: 'vertical'
+        TopBar:
+            id: top_attendance_switch_cells
+            size_hint_y: .15
+		GridLayout:
+			id: available_cells_stack_layout
+			cols: 6
+			spacing: 5,5
+			padding: 5,5,5,5
+        BoxLayout:
+            id: switch_cell_lower_nav_buttons
+            orientation: 'horizontal'
+            size_hint_y: None
+            height: 90
+            spacing: 15
+            padding: 5
+            canvas.before:
+                Color:
+                    rgba: main_background
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+            Button:
+                text: 'Day Work'
+                font_size: 28
+                background_normal: ''
+                color: black
+                background_color: normal
+                on_release:
+                	app.root.current = 'AvailableDayWorkScreen'
+            Button:
+                text: 'Time Sheet'
+                font_size: 28
+                background_normal: ''
+                color: black
+                background_color: normal
+                on_release:
+                	app.root.current = 'Timesheet'
+			

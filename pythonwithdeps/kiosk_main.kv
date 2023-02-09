@@ -1,0 +1,39 @@
+# kivy 2.1.0
+
+#: import NoTransition kivy.uix.screenmanager.NoTransition
+
+#: include kv_files/welcome_screen.kv
+#: include kv_files/attendance.kv
+#: include kv_files/attendance_clocked_in.kv
+#: include kv_files/available_shop_orders.kv
+#: include kv_files/active_shop_order.kv
+#: include kv_files/timesheet.kv
+#: include kv_files/attendance_switch_depts.kv
+#: include kv_files/streaming_radio.kv
+#: include kv_files/cell_clock_in.kv
+#: include kv_files/available_daywork.kv
+
+#:set button_font 20
+#:set warning [1, 239/255, 0, 1]
+#:set danger [1, 0, 0, 1]
+#:set success [0, 1, 0, 1]
+#:set normal [1, 1, 1, 1]
+#:set blue [0, 0, 1, 1]
+#:set teal [0, 202/255, 177/255, 1]
+#:set black [0, 0, 0, 1]
+#:set shamrock [46/255, 204/255, 113/255, 1]
+#:set main_background [60/255,60/255,60/255,1]
+
+KioskScreenManager:
+	transition: NoTransition()
+	WelcomeScreen:
+	AttendanceClockedIn:
+	Attendance:
+	AttendanceSwitchDepts:
+	CellClockIn:
+	AvailableShopOrders:
+	ActiveShopOrder:
+	AvailableDayWork:
+	Timesheet:
+	StreamingRadio:
+

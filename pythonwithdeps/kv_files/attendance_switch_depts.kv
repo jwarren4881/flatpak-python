@@ -1,0 +1,54 @@
+#: kivy 2.1.0
+
+#:set button_font 20
+#:set warning [1, 239/255, 0, 1]
+#:set danger [1, 0, 0, 1]
+#:set success [0, 1, 0, 1]
+#:set normal [1, 1, 1, 1]
+#:set black [0, 0, 0, 1]
+#:set shamrock [46/255, 204/255, 113/255, 1]
+#:set main_background [60/255,60/255,60/255,1]
+
+<AttendanceSwitchDepts>:
+    id: attendance_switch_depts
+    name: 'AttendanceSwitchDepts'
+    background_color: normal
+    canvas.before:
+        Color:
+            rgba: main_background
+        Rectangle:
+            pos: self.pos
+            size: self.size
+    BoxLayout:
+        orientation: 'vertical'
+        TopBar:
+            id: top_attendance_switch_depts
+            size_hint_y: .15
+		BoxLayout:
+			orientation: 'horizontal'
+			size_hint_y: None
+			height: 30
+			Label:
+				text: 'Switch Department'
+				font_size: 18
+			Label:
+				text: 'Clock Out'
+				font_size: 18
+		BoxLayout:
+			BoxLayout:
+				canvas:
+					Color:
+						rgba: black
+					Line:
+						width: 2.5
+						points: self.width / 2 , self.parent.height, self.width / 2, self.parent.y
+				#DepartmentButtons:
+				#	spacing: (5,5)
+				#	padding: [7,7,7,7]
+				StackLayout:
+					id: department_switch_buttons
+					spacing: (5,5)
+					padding: [7,7,7,7]
+				ClockOutReasons:
+					spacing: (5,5)
+					padding: [7,7,7,7]

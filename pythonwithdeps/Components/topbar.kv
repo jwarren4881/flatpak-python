@@ -1,0 +1,71 @@
+#:kivy 2.1.0
+#set limit 400
+#:set danger [1, 0, 0, 1]
+#:set success [0, 1, 0, 1]
+#:set normal [1, 1, 1, 1]
+#:set blue [0, 0, 1, 1]
+#:set black [0,0,0,1]
+#:set dark_grey [105/255,105/255,105/255,1]
+
+<TopBar>:
+    orientation:'vertical'
+    size_hint_y: None
+    ProgressBar:
+        id: timeout_bar
+        #value: 100
+        min: 0
+        max: root.progress_limit
+        size_hint_y: 0.005
+    BoxLayout:
+        orientation: 'horizontal'
+        size_hint_y: 0.05
+        Label:
+            id: user_id
+            text: 'JAKE WARREN'
+            font_size: 18
+            padding_x: 15
+            size_hint_x: None
+            size: self.texture_size
+        Label:
+            id: kiosk_id
+            text: 'KSK198'
+            font_size: 12
+            size_hint_x: None
+            h_align: 'bottom'
+            size: self.texture_size
+        Label:
+            id: earned_hours
+            text: f'{root.earned_hours} Earned Hours'
+        Label:
+            id: status_label
+            text: 'Status Information goes here'
+            size_hint_x: None
+            size: self.texture_size
+            padding_x: 5
+    BoxLayout:
+        orientation: 'horizontal'
+        size_hint_y: 0.05
+        spacing: 2
+        canvas.before:
+            Color:
+                rgba: dark_grey
+            Rectangle:
+                size: self.size
+                pos: self.pos
+        Button:
+            id: start_over_button
+            text:"START OVER"
+            background_normal: ''
+            background_color: danger
+            on_release:
+                app.root.current = 'welcome_screen'
+                app.root.transition.direction = 'right'
+        Button:
+        	id: top_bar_middle_button
+            text:"Attendance"
+            background_normal: ''
+            background_color: normal
+            color: black
+        Label:
+            id: current_screen
+            text: ''
