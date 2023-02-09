@@ -1,11 +1,16 @@
 {
     "app-id": "org.testing.kiosk",
-    "runtime": "org.freedesktop.Platform",
-    "runtime-version": "21.08",
-    "sdk": "org.freedesktop.Sdk",
+    "runtime": "org.kde.Platform",
+    "runtime-version": "5.15-22.08",
+    "sdk": "org.kde.Sdk",
     "command": "runner.sh",
     "finish-args": [
-        "--share=network"
+        "--share=network",
+        "--share=ipc",
+        "--socket=x11",
+        "--socket=pulseaudio",
+        "--device=dri",
+        "--filesystem=host"
     ],
     "modules": [
         {
@@ -18,12 +23,19 @@
                 }
             ]
         },
+
         {
             "name": "pip-install",
             "buildsystem": "simple",
             "build-options": {
                 "build-args": [
-                    "--share=network"
+			"--share=network",
+			"--share=ipc",
+			"--socket=x11",
+			"--socket=pulseaudio",
+			"--device=dri",
+			"--filesystem=host",
+            "--filesystem=/snap/bin/vlc"
                 ]
             },
             "build-commands": [
